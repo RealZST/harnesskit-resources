@@ -271,5 +271,57 @@
     "verified": false,
     "api_domains": [],
     "credentials_path": null
+  },
+  {
+    "binary_name": "bl",
+    "display_name": "Aliyun Model Studio CLI",
+    "description": "Aliyun Model Studio CLI — chat, multimodal, image/video generation, search, and workflows exposed as structured tool calls",
+    "install_command": "npm install -g bailian-cli",
+    "skills_repo": "modelstudioai/cli",
+    "skills_install_command": "npx skills add modelstudioai/cli --all -g",
+    "icon_url": null,
+    "categories": ["ai-platform", "multimodal", "image-generation", "video-generation", "search"],
+    "verified": false,
+    "api_domains": ["dashscope.aliyuncs.com", "bailian.console.aliyun.com"],
+    "credentials_path": "~/.bailian/config.json"
+  },
+  {
+    "binary_name": "zero",
+    "display_name": "Zerolang",
+    "description": "Zerolang — graph-native programming language for agents; query and patch a semantic graph via compiler-checked CLI commands",
+    "install_command": "curl -fsSL https://zerolang.ai/install.sh | bash",
+    "skills_repo": "vercel-labs/zerolang",
+    "skills_install_command": "npx skills add vercel-labs/zerolang",
+    "icon_url": null,
+    "categories": ["programming-language", "compiler", "agent-tooling"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "balzac",
+    "display_name": "Balzac CLI",
+    "description": "Balzac CLI — AI SEO/GEO content engine for agents to research keywords, write optimized articles, and publish to a CMS",
+    "install_command": "npm install -g balzac-cli",
+    "skills_repo": "hirebalzac/cli",
+    "skills_install_command": "npx skills add hirebalzac/cli",
+    "icon_url": null,
+    "categories": ["content", "seo", "marketing", "publishing"],
+    "verified": false,
+    "api_domains": ["api.hirebalzac.ai", "developer.hirebalzac.ai"],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "wren",
+    "display_name": "Wren AI",
+    "description": "Wren AI — open context layer giving agents governed text-to-SQL/GenBI across 20+ data sources",
+    "install_command": "pip install wrenai",
+    "skills_repo": "Canner/WrenAI",
+    "skills_install_command": "npx skills add Canner/WrenAI",
+    "icon_url": null,
+    "categories": ["data", "sql", "analytics", "context-layer", "database"],
+    "verified": false,
+    "api_domains": ["getwren.ai"],
+    "credentials_path": null
   }
 ]
