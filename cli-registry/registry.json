@@ -323,5 +323,18 @@
     "verified": false,
     "api_domains": ["getwren.ai"],
     "credentials_path": null
+  },
+  {
+    "binary_name": "obsidian",
+    "display_name": "Obsidian CLI",
+    "description": "Obsidian CLI — read, create, search, and manage notes, tasks, and properties in Obsidian vaults, plus plugin/theme development and debugging",
+    "install_command": "Enable in Obsidian → Settings → General → Command line interface (bundled with Obsidian 1.12.7+)",
+    "skills_repo": "kepano/obsidian-skills",
+    "skills_install_command": "npx skills add https://github.com/kepano/obsidian-skills",
+    "icon_url": null,
+    "categories": ["notes", "knowledge-management"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
   }
 ]
