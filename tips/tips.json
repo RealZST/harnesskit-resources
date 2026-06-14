@@ -343,5 +343,50 @@
     "agent": "gemini",
     "tip": "Set GEMINI_SYSTEM_MD=/path/to/my-system.md (absolute or relative to CWD) to load a custom system prompt file in Gemini CLI.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/system-prompt.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Enable Git worktrees by setting \"experimental\": { \"worktrees\": true } in settings.json, then launch with gemini --worktree <name> (or -w) to give each session an isolated copy of the repo in .gemini/worktrees/ on its own branch, so parallel tasks don't collide.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/git-worktrees.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Run /setup-github in Gemini CLI to scaffold GitHub Actions that automatically triage incoming issues and review pull requests with Gemini.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Pass --include-directories to add extra folders to your Gemini CLI workspace for multi-directory support, e.g. --include-directories /path/to/project1,/path/to/project2 (comma-separated or repeated flags, up to 5 directories).",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Define your sandbox environment as code: drop a .gemini/sandbox.Dockerfile in your project root, then run with BUILD_SANDBOX=1 GEMINI_SANDBOX=docker gemini -p \"...\" and Gemini CLI builds the custom image automatically.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/sandbox.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Create a .geminiignore file in your project root to exclude paths from Gemini CLI tools and @ file-sharing, using .gitignore-style globs (e.g. /archive/ or *.md with !README.md to negate). Restart the session to apply changes.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-ignore.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Run /memory show to display the combined instructional context currently loaded, so you can verify the exact GEMINI.md hierarchy and content the model is using.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
+  },
+  {
+    "agent": "claude",
+    "tip": "If an MCP server requires a pre-registered OAuth redirect URI, pass --callback-port (e.g. --callback-port 8080) when adding it so Claude Code uses a fixed port matching http://localhost:PORT/callback instead of a random one.",
+    "source": "https://code.claude.com/docs/en/mcp"
+  },
+  {
+    "agent": "codex",
+    "tip": "When contributing to the Codex repo, use the root just helpers to match the workspace: just fmt to format, just fix -p <crate> for the crate you touched, and just test -p <crate> (or just test for a full sweep) before opening a PR.",
+    "source": "https://github.com/openai/codex/blob/main/docs/contributing.md"
+  },
+  {
+    "agent": "codex",
+    "tip": "Use codex --cd <dir> to start Codex in a nested directory so it loads that subtree's AGENTS.md (and any AGENTS.override.md) — e.g. codex --cd services/payments to pick up a service-specific override.",
+    "source": "https://developers.openai.com/codex/guides/agents-md"
   }
 ]
