@@ -140,5 +140,15 @@
   { "repo": "gsd-build/get-shit-done", "reason": "Archived redirect stub; meta-prompting/spec-driven prompts system for Claude Code, not a CLI binary; star count inflated/suspicious" },
   { "repo": "affaan-m/ECC", "reason": "Agent-harness skills/instincts/memory/config collection (not a CLI); fake 215k-star badge via api.ecc.tools, sibling everything-claude-code already excluded; install command points at unrelated opencode" },
   { "repo": "Egonex-AI/Understand-Anything", "reason": "A Claude Code plugin (installed via /plugin marketplace add), not a standalone CLI; plugin/dashboard collection with suspicious 59k-star count" },
-  { "repo": "Digital-Threads/aimux", "reason": "Human-facing utility for switching between Claude CLI subscription profiles/credentials (tmux-like orchestrator), not agent-first" }
+  { "repo": "Digital-Threads/aimux", "reason": "Human-facing utility for switching between Claude CLI subscription profiles/credentials (tmux-like orchestrator), not agent-first" },
+  { "repo": "ishizakahiroshi/many-ai-cli", "reason": "Human-facing parallel runner/approval orchestrator for multiple coding CLIs, not a tool for agents" },
+  { "repo": "dannyphantomx64/aether-code", "reason": "Uncensored human-facing coding agent (Claude Code alternative), not a tool for agents" },
+  { "repo": "openatx/uiautomator2", "reason": "Android UiAutomator Python wrapper/library, not an agent-first CLI" },
+  { "repo": "msitarzewski/agency-agents", "reason": "AI agent-persona collection with inflated star count, not a CLI" },
+  { "repo": "ogulcancelik/herdr", "reason": "License is NOASSERTION (no detectable OSI license), and it is a human-facing terminal multiplexer/harness for running coding agents, not an agent-first tool" },
+  { "repo": "Yeachan-Heo/oh-my-claudecode", "reason": "Human-facing multi-agent orchestration layer/plugin for Claude Code ('just use OMC'), i.e. a coding-agent harness itself, not an agent-driven CLI tool" },
+  { "repo": "guelfoweb/orbit", "reason": "Is itself a local coding agent/runtime (Gemma 4 on CPU) rather than a tool driven by agents; only 9 real stars" },
+  { "repo": "EKKOLearnAI/hermes-studio", "reason": "Web dashboard / desktop GUI console for Hermes Agent (not a CLI), and license is NOASSERTION (not a real OSI license)" },
+  { "repo": "bytedance/deer-flow", "reason": "A human-facing super-agent harness/orchestrator (sub-agents, sandboxes, memory) with web UI + Docker deployment — the harness itself, not an agent-first CLI tool" },
+  { "repo": "walkinglabs/learn-harness-engineering", "reason": "A project-based course/tutorial repo (12 lectures, 6 projects); install is a one-off audit shell script, not a CLI binary" }
 ]
