@@ -388,5 +388,15 @@
     "agent": "codex",
     "tip": "Use codex --cd <dir> to start Codex in a nested directory so it loads that subtree's AGENTS.md (and any AGENTS.override.md) — e.g. codex --cd services/payments to pick up a service-specific override.",
     "source": "https://developers.openai.com/codex/guides/agents-md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Launch Gemini CLI with --debug for verbose output when troubleshooting (e.g. MCP servers); in interactive mode press F12 to open the debug console.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Type /mcp in Gemini CLI to see every configured MCP server with its connection status (CONNECTED, CONNECTING, or DISCONNECTED), a configuration summary, and the tools each server exposes.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md"
   }
 ]
