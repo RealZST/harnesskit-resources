@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Discover tips from official documentation and open an Issue with candidates."""
 
+import html
 import json
 import os
 import re
@@ -164,7 +165,12 @@ def fetch_github_docs(repo: str, docs_path: str) -> list[tuple[str, str]]:
 
 def strip_html_tags(text: str) -> str:
     """Remove HTML tags, keep text content."""
-    return re.sub(r"<[^>]+>", " ", text)
+    # Drop <script>/<style> blocks first — modern docs sites embed their whole
+    # page payload as JS (e.g. Next.js flight data full of _jsx(_components...)),
+    # which survives plain tag stripping and pollutes candidates.
+    text = re.sub(r"<(script|style)\b[^>]*>.*?</\1>", " ", text, flags=re.DOTALL | re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", " ", text)
+    return html.unescape(text)
 
 
 def fetch_url_content(url: str) -> list[tuple[str, str]]:

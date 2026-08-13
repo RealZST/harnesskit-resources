@@ -186,7 +186,7 @@
     "display_name": "Graphify",
     "description": "CLI that turns folders of code, docs, papers, images, and videos into queryable knowledge graphs — with platform-specific skill bundles for Claude Code, Codex, Cursor, Gemini CLI and more",
     "install_command": "pip install graphifyy",
-    "skills_repo": "safishamsi/graphify",
+    "skills_repo": "Graphify-Labs/graphify",
     "skills_install_command": "graphify install",
     "icon_url": null,
     "categories": ["knowledge-graph", "code-understanding", "rag"],
@@ -335,6 +335,45 @@
     "categories": ["notes", "knowledge-management"],
     "verified": false,
     "api_domains": [],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "memu",
+    "display_name": "memU",
+    "description": "Agent-driven personal memory stored as a wiki — shared across sessions, agents, and devices, with host adapters that wire the record and retrieve seams into Claude Code, Codex, Cursor and more",
+    "install_command": "pip install memu-cli",
+    "skills_repo": "NevaMind-AI/memU",
+    "skills_install_command": null,
+    "icon_url": null,
+    "categories": ["memory", "agent-infrastructure"],
+    "verified": false,
+    "api_domains": ["api.memu.so", "memu.so"],
+    "credentials_path": "~/.memu/config.env"
+  },
+  {
+    "binary_name": "anydoc",
+    "display_name": "anydoc",
+    "description": "Converts Word, PowerPoint, Excel, OpenDocument, RTF, EPUB, CSV, and PDF into clean GitHub-Flavored Markdown — Rust binary shipped with an Agent Skill so agents can read any document they run into",
+    "install_command": "npm install -g @firecrawl/anydoc",
+    "skills_repo": "firecrawl/anydoc",
+    "skills_install_command": "npx skills add firecrawl/anydoc",
+    "icon_url": null,
+    "categories": ["document-conversion", "markdown", "content-extraction"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "hubspot",
+    "display_name": "HubSpot Agent CLI",
+    "description": "Official HubSpot CLI for AI agents working with CRM data (beta) — browse and mutate CRM objects with --dry-run safety, OAuth login, and a separate skills bundle",
+    "install_command": "curl -fsSL https://api.hubapi.com/hub/cli/backend/hub-cli/latest/install.sh | sh",
+    "skills_repo": "HubSpot/agent-cli-skills",
+    "skills_install_command": "npx skills add hubspot/agent-cli-skills",
+    "icon_url": null,
+    "categories": ["crm", "sales", "business-data"],
+    "verified": false,
+    "api_domains": ["api.hubapi.com"],
     "credentials_path": null
   }
 ]
