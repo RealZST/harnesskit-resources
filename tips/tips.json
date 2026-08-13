@@ -398,5 +398,60 @@
     "agent": "gemini",
     "tip": "Type /mcp in Gemini CLI to see every configured MCP server with its connection status (CONNECTED, CONNECTING, or DISCONNECTED), a configuration summary, and the tools each server exposes.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md"
+  },
+  {
+    "agent": "claude",
+    "tip": "Turn a PR review into a one-line script: gh pr diff \"$1\" | claude -p --append-system-prompt \"You are a security engineer. Review for vulnerabilities.\" --output-format json. Save it as review.sh and run bash review.sh 123.",
+    "source": "https://code.claude.com/docs/en/headless"
+  },
+  {
+    "agent": "claude",
+    "tip": "Pair --output-format json with --json-schema '{...}' in claude -p to get output conforming to your own JSON Schema — the parsed result lands in the structured_output field, ready for jq.",
+    "source": "https://code.claude.com/docs/en/headless"
+  },
+  {
+    "agent": "claude",
+    "tip": "Run /autocompact to set how much context Claude keeps before auto-compacting. It writes the setting to your user settings, and --autocompact or CLAUDE_CODE_AUTO_COMPACT_WINDOW can override it per run.",
+    "source": "https://code.claude.com/docs/en/settings"
+  },
+  {
+    "agent": "claude",
+    "tip": "Press Ctrl+O to open the transcript viewer. Under the fullscreen renderer you can press [ to dump the conversation into your terminal's native scrollback for Cmd+F or tmux copy mode, or v to open it in $EDITOR — run /tui with no argument to check which renderer is active.",
+    "source": "https://code.claude.com/docs/en/interactive-mode"
+  },
+  {
+    "agent": "codex",
+    "tip": "Press Ctrl+O or run /copy to copy the latest completed Codex output straight to your clipboard.",
+    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli"
+  },
+  {
+    "agent": "codex",
+    "tip": "Attach screenshots or mockups to your first prompt with codex --image shot1.png,shot2.png (or -i). Separate multiple paths with commas or repeat the flag.",
+    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli"
+  },
+  {
+    "agent": "codex",
+    "tip": "Run codex --ignore-user-config to skip $CODEX_HOME/config.toml for one run — useful for reproducing a teammate's result or a CI run without your personal settings. Authentication still uses CODEX_HOME.",
+    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli"
+  },
+  {
+    "agent": "codex",
+    "tip": "Keep profile-specific settings in $CODEX_HOME/profile-name.config.toml — codex --profile profile-name layers that file on top of your base user config.",
+    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli"
+  },
+  {
+    "agent": "codex",
+    "tip": "Drive Codex on another machine by starting codex app-server --listen ws://IP:PORT there, then connecting the TUI with codex --remote ws://IP:PORT. Use unix:// for a local socket instead.",
+    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Enable checkpointing with {\"general\": {\"checkpointing\": {\"enabled\": true}}} in settings.json — Gemini then snapshots your project before any file-modifying tool runs, and /restore rolls back files, conversation, and the pending tool call.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/checkpointing.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Add MCP servers from the command line instead of hand-editing JSON: gemini mcp add -t http -H \"Authorization: Bearer abc123\" my-server https://api.example.com/mcp/. Use -s user to write it to ~/.gemini/settings.json rather than the project.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md"
   }
 ]
