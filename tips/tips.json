@@ -453,5 +453,30 @@
     "agent": "gemini",
     "tip": "Add MCP servers from the command line instead of hand-editing JSON: gemini mcp add -t http -H \"Authorization: Bearer abc123\" my-server https://api.example.com/mcp/. Use -s user to write it to ~/.gemini/settings.json rather than the project.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md"
+  },
+  {
+    "agent": "claude",
+    "tip": "Both /model and /effort save your choice as the default for new sessions. Press s in the /model picker to switch models without saving, and note that the max and ultracode effort levels apply to the current session only.",
+    "source": "https://code.claude.com/docs/en/settings"
+  },
+  {
+    "agent": "codex",
+    "tip": "Install a Codex plugin with codex plugin add <plugin>@<marketplace>, or pass --marketplace (-m) NAME when the plugin argument omits the @marketplace part. Add --json for machine-readable output.",
+    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli"
+  },
+  {
+    "agent": "codex",
+    "tip": "Ask Codex cloud for several independent shots at a task with --attempts (1-4) — it runs best-of-N and lets you pick the strongest result.",
+    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Run /resume with no argument to open the session browser. Every conversation is auto-saved, so you can press / to search content across all past sessions, sort them by date or message count, and delete the ones you no longer need.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Export the current conversation with /chat share notes.md (or notes.json) — omit the filename and Gemini CLI generates one for you.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
   }
 ]
