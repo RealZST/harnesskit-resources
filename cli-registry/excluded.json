@@ -168,5 +168,7 @@
   { "repo": "geekjourneyx/md2x", "reason": "Agent-native design (deterministic --json contract, AGENT-GUIDE.md) but ships no skill bundle — no skills/ dir or SKILL.md anywhere in the repo, so skills_repo would point at nothing and the entry could never reach verified:true. Very low adoption (6 stars). Revisit if it ships skills like the author's md2wechat does" },
   { "repo": "hesreallyhim/awesome-claude-code", "reason": "Awesome-list of Claude Code resources, not a CLI tool" },
   { "repo": "unixorn/awesome-zsh-plugins", "reason": "Awesome-list of ZSH frameworks and plugins, unrelated to agent tooling" },
-  { "repo": "HubSpot/agent-cli", "reason": "Not a rejection — already in registry.json as `hubspot`; the entry's skills_repo points at HubSpot/agent-cli-skills, so the binary's own repo needs listing here to stop discovery re-proposing it" }
+  { "repo": "HubSpot/agent-cli", "reason": "Not a rejection — already in registry.json as `hubspot`; the entry's skills_repo points at HubSpot/agent-cli-skills, so the binary's own repo needs listing here to stop discovery re-proposing it" },
+  { "repo": "chenhg5/cc-connect", "reason": "Bridges local coding agents to messaging platforms (Feishu, Slack, Telegram…) so humans can drive their agent remotely — an agent harness, not a tool for agents; also ships no LICENSE file, so it is not open source" },
+  { "repo": "Spielewoy/multi-cli", "reason": "Runs multiple AI coding accounts side by side — account and profile management for agent CLIs, same class as `baedonguri/aiwitch` and `Digital-Threads/aimux`" }
 ]

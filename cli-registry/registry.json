@@ -375,5 +375,31 @@
     "verified": false,
     "api_domains": ["api.hubapi.com"],
     "credentials_path": null
+  },
+  {
+    "binary_name": "agentmemory",
+    "display_name": "agentmemory",
+    "description": "Persistent memory for coding agents — local memory server with hybrid search, confidence scoring and knowledge graphs, plus 17 native skills and connect adapters for 20 agents",
+    "install_command": "npm install -g @agentmemory/agentmemory",
+    "skills_repo": "rohitg00/agentmemory",
+    "skills_install_command": "npx skills add rohitg00/agentmemory -y",
+    "icon_url": null,
+    "categories": ["memory", "agent-infrastructure"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": "~/.agentmemory/.env"
+  },
+  {
+    "binary_name": "agent-reach",
+    "display_name": "Agent Reach",
+    "description": "Read and search 15 platforms from one CLI — Twitter/X, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu, V2EX, RSS and more, with multi-backend routing and `doctor --json` health checks",
+    "install_command": "pipx install https://github.com/Panniantong/agent-reach/archive/main.zip",
+    "skills_repo": "Panniantong/Agent-Reach",
+    "skills_install_command": "agent-reach install --env=auto",
+    "icon_url": null,
+    "categories": ["web-research", "content-extraction", "social-media"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": "~/.agent-reach/config.json"
   }
 ]
