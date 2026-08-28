@@ -18,7 +18,11 @@ import requests
 GITHUB_API = "https://api.github.com"
 OWNER_REPO = "RealZST/harnesskit-resources"
 LABEL = "tips-discovery"
-MAX_CANDIDATES_IN_ISSUE = 40
+MAX_CANDIDATES_IN_ISSUE = 70
+# Per-agent slice of the issue. Without it the global score sort starves whole
+# agents: markdown docs score higher than scraped HTML, so the top-N was taken
+# entirely by the repo-backed agents while URL-only ones contributed 0.
+MAX_CANDIDATES_PER_AGENT = 5
 SEARCH_DELAY = 1  # seconds between requests (rate-limit guard)
 
 # Signals that a sentence is an actionable tip
@@ -137,8 +141,14 @@ def load_sources() -> list[dict]:
         return json.load(f)
 
 
-def fetch_github_docs(repo: str, docs_path: str) -> list[tuple[str, str]]:
-    """Fetch all markdown files from a GitHub repo docs directory.
+def fetch_github_docs(
+    repo: str, docs_path: str, files: list[str] | None = None
+) -> list[tuple[str, str]]:
+    """Fetch markdown files from a GitHub repo docs directory.
+
+    `files` is an optional allow-list of file names within `docs_path`. Use it
+    for repos whose docs directory mixes user-facing guides with internal
+    architecture notes or translated copies of the same page.
     Returns list of (content, source_url) tuples."""
     results = []
     url = f"{GITHUB_API}/repos/{repo}/contents/{docs_path}"
@@ -148,6 +158,12 @@ def fetch_github_docs(repo: str, docs_path: str) -> list[tuple[str, str]]:
         return results
 
     md_files = [f for f in data if f.get("name", "").endswith(".md")]
+    if files:
+        wanted = set(files)
+        md_files = [f for f in md_files if f["name"] in wanted]
+        missing = wanted - {f["name"] for f in md_files}
+        for name in sorted(missing):
+            print(f"  Warning: {repo}/{docs_path}/{name} listed in sources but not found")
     print(f"  Found {len(md_files)} markdown files in {repo}/{docs_path}")
 
     for file_info in md_files:
@@ -196,7 +212,9 @@ def fetch_all_sources(sources: list[dict]) -> dict[str, list[tuple[str, str]]]:
         print(f"\nFetching [{agent}] {source.get('repo') or source.get('url')}")
 
         if source["type"] == "github":
-            docs = fetch_github_docs(source["repo"], source["docs_path"])
+            docs = fetch_github_docs(
+                source["repo"], source["docs_path"], source.get("files")
+            )
             by_agent[agent].extend(docs)
         elif source["type"] == "url":
             docs = fetch_url_content(source["url"])
@@ -326,6 +344,22 @@ def deduplicate_candidates(candidates: list[dict]) -> list[dict]:
     return unique
 
 
+def allocate_per_agent(candidates: list[dict]) -> list[dict]:
+    """Take the top MAX_CANDIDATES_PER_AGENT of each agent, then cap globally.
+
+    `candidates` must already be sorted by score descending.
+    """
+    per_agent: dict[str, int] = {}
+    selected: list[dict] = []
+    for c in candidates:
+        agent = c["agent"]
+        if per_agent.get(agent, 0) >= MAX_CANDIDATES_PER_AGENT:
+            continue
+        per_agent[agent] = per_agent.get(agent, 0) + 1
+        selected.append(c)
+    return selected[:MAX_CANDIDATES_IN_ISSUE]
+
+
 def create_issue(candidates: list[dict]):
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     n = len(candidates)
@@ -417,8 +451,10 @@ def main():
     all_candidates = deduplicate_candidates(all_candidates)
     print(f"After internal dedup: {len(all_candidates)}")
 
-    # Limit
-    all_candidates = all_candidates[:MAX_CANDIDATES_IN_ISSUE]
+    # Limit — give every agent its own slice before falling back to the
+    # global cap, so a high-scoring agent cannot take the whole issue.
+    all_candidates = allocate_per_agent(all_candidates)
+    print(f"After per-agent allocation: {len(all_candidates)}")
 
     # Step 4: Create issue
     if all_candidates:

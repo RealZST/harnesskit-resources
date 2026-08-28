@@ -53,12 +53,22 @@
 ```
 
 ### Agent Field Values
+Must match the agent id HarnessKit scans with — Tip of the Day only shows a tip
+when the reader has that agent installed, so an unknown id makes the tip dead weight.
+
 - `claude` — Claude Code
 - `codex` — OpenAI Codex CLI
 - `gemini` — Gemini CLI
 - `cursor` — Cursor Editor
 - `antigravity` — Google Antigravity IDE
 - `copilot` — GitHub Copilot
+- `windsurf` — Devin Desktop (formerly Windsurf)
+- `opencode` — OpenCode
+- `hermes` — Hermes
+- `kiro` — Kiro
+- `omp` — Oh My Pi
+- `dsh` — DeepSeek Harness
+- `grok` — Grok Build
 - `general` — Cross-tool (use sparingly; prefer assigning to a specific agent)
 
 ## Review Process
