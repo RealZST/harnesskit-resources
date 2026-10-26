@@ -401,5 +401,57 @@
     "verified": false,
     "api_domains": [],
     "credentials_path": "~/.agent-reach/config.json"
+  },
+  {
+    "binary_name": "rea",
+    "display_name": "REA",
+    "description": "REA — reverse-engineer binaries and application artifacts with structured CLI output; native analysis engines are configured separately",
+    "install_command": "npm install -g rea-agents",
+    "skills_repo": "morluto/rea",
+    "skills_install_command": "npx skills add https://github.com/morluto/rea/tree/main/.agents/skills/reverse-engineer-anything",
+    "icon_url": null,
+    "categories": ["reverse-engineering", "code-analysis"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "hindsight-embed",
+    "display_name": "Hindsight Local Memory",
+    "description": "Hindsight local memory CLI — retain, recall, and reflect over persistent memories with automatic daemon management; configure a model before use",
+    "install_command": "uv tool install hindsight-embed",
+    "skills_repo": "vectorize-io/hindsight",
+    "skills_install_command": "npx skills add https://github.com/vectorize-io/hindsight/tree/main/skills/hindsight-local",
+    "icon_url": null,
+    "categories": ["memory", "knowledge-management"],
+    "verified": false,
+    "api_domains": ["api.openai.com"],
+    "credentials_path": "~/.hindsight/embed"
+  },
+  {
+    "binary_name": "repowise",
+    "display_name": "Repowise",
+    "description": "Repowise — index codebases, assess change risk, and find impacted tests through the CLI; its review skill also documents terminal equivalents of MCP tools",
+    "install_command": "pip install repowise",
+    "skills_repo": "repowise-dev/repowise",
+    "skills_install_command": "npx skills add https://github.com/repowise-dev/repowise/tree/main/plugins/claude-code/skills/change-review",
+    "icon_url": null,
+    "categories": ["code-analysis", "code-review"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": ".repowise/.env"
+  },
+  {
+    "binary_name": "goctl",
+    "display_name": "goctl",
+    "description": "goctl — generate go-zero API services, RPC services, and database models from specifications, guided by the official zero-skills bundle",
+    "install_command": "go install github.com/zeromicro/go-zero/tools/goctl@latest",
+    "skills_repo": "zeromicro/zero-skills",
+    "skills_install_command": "npx skills add zeromicro/zero-skills",
+    "icon_url": null,
+    "categories": ["code-generation", "go", "microservices"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
   }
 ]

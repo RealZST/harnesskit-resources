@@ -226,7 +226,7 @@
   },
   {
     "agent": "claude",
-    "tip": "Claude Code reads CLAUDE.md, not AGENTS.md. If your repo uses AGENTS.md for other agents, create a CLAUDE.md that imports it with @AGENTS.md so both tools read the same instructions.",
+    "tip": "In Claude Code v2.1.277 or later, open /config and set Project instructions to claude-md-and-agents-md when you want both instruction files loaded. If AGENTS.md support is unavailable in your session, import it with @AGENTS.md in a CLAUDE.md instead.",
     "source": "https://code.claude.com/docs/en/memory"
   },
   {
@@ -478,5 +478,95 @@
     "agent": "gemini",
     "tip": "Export the current conversation with /chat share notes.md (or notes.json) — omit the filename and Gemini CLI generates one for you.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "claude",
+    "tip": "If Claude Code is waiting to continue after a usage limit resets, press Esc at an empty prompt or Ctrl+C to cancel the wait. You can also run /rate-limit-options and choose Don’t continue automatically.",
+    "source": "https://code.claude.com/docs/en/interactive-mode"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Press Ctrl+L to clear and redraw the Gemini CLI display while keeping the active conversation context. Use /clear when you want to clear that context and start a new session.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "copilot",
+    "tip": "In VS Code, press Cmd+I on macOS or Ctrl+I on Windows/Linux to open inline chat in the editor or terminal. Use it for a focused edit or a question about the command you are working on.",
+    "source": "https://code.visualstudio.com/docs/agents/reference/ai-features-cheat-sheet"
+  },
+  {
+    "agent": "cursor",
+    "tip": "Use /goal followed by a verifiable objective, such as /goal fix all flaky tests and make CI green, to keep Cursor working toward completion. In the CLI, Ctrl+C pauses the goal; the feature is rolling out, so try a new chat if it is missing.",
+    "source": "https://cursor.com/docs/agent/overview"
+  },
+  {
+    "agent": "cursor",
+    "tip": "To keep a skill active across turns, select it from Cursor’s / menu and choose Use as Mode. The skill stays in context until you exit the mode, which is useful for a review checklist or a team playbook.",
+    "source": "https://cursor.com/docs/agent/prompting"
+  },
+  {
+    "agent": "cursor",
+    "tip": "Type /side or /btw followed by a question to open a Cursor side chat without interrupting the main conversation. It keeps its own transcript, and you can @-mention it in the main thread to bring the context back.",
+    "source": "https://cursor.com/docs/agent/overview"
+  },
+  {
+    "agent": "grok",
+    "tip": "Run /create-workflow followed by what you want automated; Grok asks about scope and verification, then creates and smoke-checks the workflow. Run a saved workflow with /workflow <name>.",
+    "source": "https://docs.x.ai/build/modes-and-commands"
+  },
+  {
+    "agent": "grok",
+    "tip": "Start a Grok goal with /goal <objective> --budget <tokens> to cap how many tokens it may spend. Run /goal status to check its status, token usage, and elapsed time.",
+    "source": "https://docs.x.ai/build/modes-and-commands"
+  },
+  {
+    "agent": "hermes",
+    "tip": "Run /skills in Hermes to find an existing workflow before writing a long prompt from scratch. Invoke an installed skill directly with its slash command, such as /github-pr-workflow.",
+    "source": "https://hermes-agent.nousresearch.com/docs/guides/tips"
+  },
+  {
+    "agent": "hermes",
+    "tip": "Press Ctrl+C once to interrupt Hermes mid-response, then type a message to redirect it. Pressing Ctrl+C twice within two seconds force-exits instead.",
+    "source": "https://hermes-agent.nousresearch.com/docs/guides/tips"
+  },
+  {
+    "agent": "hermes",
+    "tip": "Press Ctrl+V in Hermes to paste a screenshot or other clipboard image directly into the chat. You can ask about an error popup or diagram without saving it to a file first.",
+    "source": "https://hermes-agent.nousresearch.com/docs/guides/tips"
+  },
+  {
+    "agent": "kiro",
+    "tip": "To make the Kiro IDE honor .kiroignore, open Settings, search for Agent Ignore Files, and add .kiroignore to kiroAgent.agentIgnoreFiles. The setting accepts multiple filenames, such as [\".gitignore\", \".kiroignore\"].",
+    "source": "https://kiro.dev/docs/kiroignore/"
+  },
+  {
+    "agent": "kiro",
+    "tip": "Set inclusion: manual in a Kiro steering file’s frontmatter, then type #steering-file-name in chat to load it when needed. Manual steering files also appear in the / menu.",
+    "source": "https://kiro.dev/docs/steering/"
+  },
+  {
+    "agent": "omp",
+    "tip": "After changing marketplace plugins, run /reload-plugins in Oh My Pi to refresh task agents, skills, slash commands, and MCP servers. Restart the session for newly installed non-MCP tools, hooks, or extension modules.",
+    "source": "https://github.com/can1357/oh-my-pi/blob/main/docs/marketplace.md"
+  },
+  {
+    "agent": "omp",
+    "tip": "Run /advisor on, or launch omp with --advisor, to enable an advisor that reviews the main agent’s turns and can inject advice. Set modelRoles.advisor when you want to choose the advisor’s model explicitly.",
+    "source": "https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md"
+  },
+  {
+    "agent": "opencode",
+    "tip": "Create .opencode/commands/component.md with a reusable prompt containing $ARGUMENTS, then run /component Button to substitute Button into the prompt. Use $1, $2, and so on when you need individual positional arguments.",
+    "source": "https://opencode.ai/docs/commands/"
+  },
+  {
+    "agent": "windsurf",
+    "tip": "In Devin Desktop’s Cascade, save a reusable procedure as .devin/workflows/<name>.md, then invoke it with /<name>. These workflows run only when you call them; use a Skill for procedures the agent should select automatically.",
+    "source": "https://docs.devin.ai/desktop/cascade/workflows"
+  },
+  {
+    "agent": "dsh",
+    "tip": "In DeepSeek Harness’s Web UI with the standard preset, ask for a recurring reminder with an explicit time zone, such as “Remind me every day at 23:00 in Asia/Shanghai to check the weather.” Open Automation tasks and confirm it has a daily rule rather than a one-time run.",
+    "source": "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/schedule.md"
   }
 ]
